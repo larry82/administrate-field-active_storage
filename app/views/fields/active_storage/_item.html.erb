@@ -28,7 +28,7 @@ controlled via a boolean local variable.
 %>
 
 <% if attachment.image? and !field.url_only? %>
-  <%= image_tag(field.variant(attachment, resize: image_size)) %>
+  <%= image_tag(field.service_url(attachment)) %>
 <% elsif attachment.video? and attachment.previewable? and !field.url_only? %> <%# if ffmpeg is installed %>
   <%= video_tag(field.url(attachment), poster: field.preview(attachment, resize: image_size), controls: true, autobuffer: true, style: "width: 100%; height: auto;") %>
 <% elsif attachment.video? and !field.url_only? %>
